@@ -14,7 +14,7 @@ import scala.language.postfixOps
 
 case class Message(msg: String)
 
-object TeslaBotServiceApp extends App {
+object TeslaBot extends App {
   val system = ActorSystem("teslabot-system")
   val endpoint = new InetSocketAddress("localhost", 8088)
   system.actorOf(TeslaBotService.props(endpoint), "teslabot-service")
