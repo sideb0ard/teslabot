@@ -15,9 +15,9 @@ import scala.language.postfixOps
 case class Message(msg: String)
 
 object TeslaBotServiceApp extends App {
-  val system = ActorSystem("wakka-service-system")
+  val system = ActorSystem("teslabot-system")
   val endpoint = new InetSocketAddress("localhost", 8088)
-  system.actorOf(TeslaBotService.props(endpoint), "wakka-service")
+  system.actorOf(TeslaBotService.props(endpoint), "teslabot-service")
   StdIn.readLine(f"Hit ENTER to exit ...\n")
   system.shutdown()
 }
@@ -29,29 +29,15 @@ object TeslaBotService {
 
 class TeslaBotService(endpoint: InetSocketAddress) extends Actor with ActorLogging {
   import context.system
-
-  val name = "TESLABOT"
-
   IO(Tcp) ! Tcp.Bind(self, endpoint)
+
+  val name = "::TESLA::BOT::"
 
   override def receive: Receive = {
     case Tcp.Connected(remote, _) =>
       log.debug("Remote Address {} connected", remote)
       sender ! Tcp.Register(context.actorOf(TeslaBotConnectionHandler.props(remote, sender, name)))
       sender ! Tcp.Write(ByteString.apply("I'M " + name + ". WHO THE FUCK ARE YOU?\n"))
-  }
-}
-
-object LanguageProcessor {
-  def props(text: String): Props = 
-    Props(new LanguageProcessor(text))
-}
-
-class LanguageProcessor(text: String) extends Actor with ActorLogging {
-  def receive: Receive = {
-    case Message(msg) => 
-      println("YEH, BOT, GOT ME SOME " + msg)
-      sender ! "FUCK YEH, " + msg.toUpperCase + "!!\n"
   }
 }
 
@@ -63,7 +49,7 @@ object TeslaBotConnectionHandler {
 class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef, name: String) extends Actor with ActorLogging {
   context.watch(connection)
 
-  val lp = context.actorOf(LanguageProcessor.props("blh"))
+  val lp = context.actorOf(Props[LanguageProcessor])
   implicit val timeout = Timeout(1 second)
 
   def receive: Receive = {
@@ -83,3 +69,12 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef,
       log.debug("Stopping, remote {} died", remote)
   }
 }
+
+class LanguageProcessor extends Actor with ActorLogging {
+  def receive: Receive = {
+    case Message(msg) => 
+      //println("YEH, BOT, GOT ME SOME " + msg)
+      sender ! "FUCK YEH, " + msg.toUpperCase + "!!\n"
+  }
+}
+
