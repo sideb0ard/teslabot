@@ -13,6 +13,7 @@ import scala.concurrent.duration._
 import scala.language.postfixOps
 
 case class Message(msg: String)
+case class Person(var name: String)
 case object AskNameMessage
 
 object TeslaBotMain extends App {
@@ -26,7 +27,7 @@ object TeslaBotMain extends App {
 object TeslaBot {
   val name = "::TESLA::BOT::"
   var peopleIKnow = List[Person]()
-  def props(endpoint: InetSocketAddress): Props = 
+  def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
 }
 
@@ -37,7 +38,6 @@ class TeslaBot(endpoint: InetSocketAddress) extends Actor with ActorLogging {
   override def receive: Receive = {
     case Tcp.Connected(remote, _) =>
       log.debug("Remote Address {} connected", remote)
-      val percy = new Person
       sender ! Tcp.Register(context.actorOf(TeslaBotConnectionHandler.props(remote, sender)))
   }
 }
@@ -53,12 +53,8 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
   val lp = context.actorOf(Props[LanguageProcessor])
   implicit val timeout = Timeout(10 seconds)
 
-  val p = new Person
-  println("PNAME: " + p.getName)
-
-  if (p.getName == "") {
-    connection ! Tcp.Write(ByteString.apply("I'M " + TeslaBot.name + ". WHO THE FUCK ARE YOU?\n"))
-  }
+  val p = Person("")
+  connection ! Tcp.Write(ByteString.apply("I'M " + TeslaBot.name + ". WHO THE FUCK ARE YOU?\n"))
 
   def receive: Receive = {
     case Tcp.Received(data) =>
@@ -68,8 +64,8 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
         case "close" => context.stop(self)
         case _ => { 
           println("NAME IS " + name)
-          p.setName(name)
-          sender ! Tcp.Write(ByteString.apply("PLEASED TO MEET YOU, " + p.getName.toUpperCase + ". WHAT'D YA WANNA YAMMER ABOUT?\n"))
+          p.name = name
+          sender ! Tcp.Write(ByteString.apply("PLEASED TO MEET YOU, " + p.name.toUpperCase + ". WHAT'D YA WANNA YAMMER ABOUT?\n"))
           context.become(converse)
         }
       }
@@ -106,8 +102,3 @@ class LanguageProcessor extends Actor with ActorLogging {
   }
 }
 
-class Person {
-  private var name: String = ""
-  def setName(n: String) { name = n }
-  def getName() = name 
-}
