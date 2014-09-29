@@ -8,6 +8,7 @@ import java.net.InetSocketAddress
 import java.util.concurrent.TimeUnit
 import scala.io.StdIn
 import scala.collection.immutable.StringOps
+import scala.collection.mutable.Map
 import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.language.postfixOps
@@ -50,23 +51,30 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
   context.watch(connection)
 
   val lp = context.actorOf(Props[LanguageProcessor])
-  implicit val timeout = Timeout(10 seconds)
+  implicit val timeout = Timeout(1 seconds)
+
+  val steps = Map[Int, String]()
+  steps(0) =  "WHAT SHALL WE SPEAK OF?"
 
   val p = Person("")
-  connection ! Tcp.Write(ByteString.apply("I'M " + TeslaBot.name + ". WHO THE FUCK ARE YOU?\n"))
+  connection ! Tcp.Write(ByteString.apply("I'M " + TeslaBot.name + ". WHAT IS YOUR NAME\n"))
 
-  def receive: Receive = {
+  def convrsrrr(n: Int): Receive = {
     case Tcp.Received(data) =>
-      val name = data.utf8String.trim
-      log.debug("Received {} from remote address {}", name, remote)
-      name match {
+      val txt = data.utf8String.trim
+      log.debug("Received {} from remote address {}", txt, remote)
+      txt match {
         case "close" => context.stop(self)
-        case _ => { 
-          println("NAME IS " + name)
-          p.name = name
-          sender ! Tcp.Write(ByteString.apply("PLEASED TO MEET YOU, " + p.name.toUpperCase + ". WHAT'D YA WANNA YAMMER ABOUT?\n"))
-          context.become(converse)
-        }
+        case _ =>
+          if ( n == 0 ) {
+            p.name = txt
+            sender ! Tcp.Write(ByteString.apply("PLEASED TO MEET YOU " + p.name + ".\n"))
+            context.become(convrsrrr(n+1))
+          }
+          steps(n+1) =
+            Await.result(lp ? Message(txt), timeout.duration).asInstanceOf[String]
+          sender ! Tcp.Write(ByteString.apply("ITERATION:" + n + " - " + steps(n) + "\n"))
+          context.become(convrsrrr(n+1))
       }
     case _: Tcp.ConnectionClosed =>
       log.debug("Stopping, because remote address {} closed", remote)
@@ -75,22 +83,8 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
       log.debug("Stopping, remote {} died", remote)
   }
 
-  def converse: Receive = {
-    case Tcp.Received(data) =>
-      val text = data.utf8String.trim
-      log.debug("Received {} from remote address {}", text, remote)
-      text match {
-        case "close" => context.stop(self)
-        case _ => sender ! Tcp.Write(
-          ByteString.apply(
-              Await.result(lp ? Message(text), timeout.duration).asInstanceOf[String]))
-      }
-    case _: Tcp.ConnectionClosed =>
-      log.debug("Stopping, because remote address {} closed", remote)
-      context.stop(self)
-    case Terminated(`connection`) =>
-      log.debug("Stopping, remote {} died", remote)
-  }
+  def receive = convrsrrr(0)
+
 }
 
 class LanguageProcessor extends Actor with ActorLogging {
