@@ -14,7 +14,6 @@ import scala.language.postfixOps
 
 case class Message(msg: String)
 case class Person(var name: String)
-case object AskNameMessage
 
 object TeslaBotMain extends App {
   val system = ActorSystem("teslabot-system")
