@@ -53,11 +53,12 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
   val lp = context.actorOf(Props[LanguageProcessor])
   implicit val timeout = Timeout(1 seconds)
 
-  val steps = Map[Int, String]()
-  steps(0) =  "WHAT SHALL WE SPEAK OF?"
+  //val steps = Map[Int, String]()
+  //steps(0) =  "WHAT SHALL WE SPEAK OF?"
+  //val steps = Map(0->"name",1->"WHAT SHALL WE SPEAK OF?")
 
   val p = Person("")
-  connection ! Tcp.Write(ByteString.apply("I'M " + TeslaBot.name + ". WHAT IS YOUR NAME\n"))
+  connection ! Tcp.Write(ByteString.apply("\nI'M " + TeslaBot.name + ". WHAT IS YOUR NAME\n"))
 
   def convrsrrr(n: Int): Receive = {
     case Tcp.Received(data) =>
@@ -68,13 +69,15 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
         case _ =>
           if ( n == 0 ) {
             p.name = txt
-            sender ! Tcp.Write(ByteString.apply("PLEASED TO MEET YOU " + p.name + ".\n"))
+            sender ! Tcp.Write(ByteString.apply("\nPLEASED TO MEET YOU " + p.name.toUpperCase + ".\nWHA'S GON' ON?\n"))
+            //sender ! Tcp.Write(ByteString.apply("ITERATION:" + n + " - " + steps(n+1) + "\n"))
+            context.become(convrsrrr(n+1))
+          } else {
+            //steps(n+1) =
+            val reply = Await.result(lp ? Message(txt), timeout.duration).asInstanceOf[String]
+            sender ! Tcp.Write(ByteString.apply("\n" + reply + "\n"))
             context.become(convrsrrr(n+1))
           }
-          steps(n+1) =
-            Await.result(lp ? Message(txt), timeout.duration).asInstanceOf[String]
-          sender ! Tcp.Write(ByteString.apply("ITERATION:" + n + " - " + steps(n) + "\n"))
-          context.become(convrsrrr(n+1))
       }
     case _: Tcp.ConnectionClosed =>
       log.debug("Stopping, because remote address {} closed", remote)
@@ -91,7 +94,7 @@ class LanguageProcessor extends Actor with ActorLogging {
   def receive: Receive = {
     case Message(msg) => 
       //println("YEH, BOT, GOT ME SOME " + msg)
-      sender ! "FUCK YEH, " + msg.toUpperCase + "!!\n"
+      sender ! "FUCK YEH, " + msg.toUpperCase + "!!"
   }
 }
 
