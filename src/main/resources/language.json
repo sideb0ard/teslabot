@@ -1,0 +1,686 @@
+{
+  "keywords": {
+    "xnone": {
+      "score": -1,
+      "decomp": {
+        "*": [
+          "_bzzzt** Plz type 'help' **",
+          "**bzzt* i may be bot, i think you smoking the wacky*backy. Type 'help'",
+          "*!*!*! plz type 'help'",
+          "*zzt*. Type 'help' for my instruction set",
+          "_bzzzt** I am lozt. Please type 'help' for my instruction set.",
+          "*_beeop** hello. you are stoner. please type 'help' for my instruction set."
+          ]
+      }
+    },
+    "sorry": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "*zzt* don't worry, it's fine..",
+          "*'s aii*ight, i don't mind**zzt",
+          "*xxzt* thats fine. bzzt<*cough*dick>.",
+          "**zzzt**no worries",
+          "c**lio*iglesiasz"
+        ]
+      }
+    },
+    "apologise": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "goto sorry"
+        ]
+      }
+    },
+    "remember": {
+      "score": 5,
+      "decomp": {
+        "* i remember *": [
+          "*bbzt* did you like (2)? **zzt* more like that? .*"
+        ],
+        "* do you remember *": [
+          "**zzt* yes, i remember (2)",
+          "What*about (2) ?",
+          "goto what",
+          "*zzt *you mentioned (2) ?"
+        ],
+        "* you remember *": [
+          "How could I forget (2) ?",
+          "What about (2) should I remember ?",
+          "goto you"
+        ]
+      }
+    },
+    "forget": {
+      "score": 5,
+      "decomp": {
+        "* i forget *": [
+          "**zzbt* (2) ?"
+        ],
+        "* did you forget *": [
+          "*zztbb* No, i always remember (2)",
+          "goto what",
+          "**tell me m*re about (2)."
+        ]
+      }
+    },
+    "if": {
+      "score": 5,
+      "decomp": {
+        "* if *": [
+          "**zzb** Do you th]nk its likely *that (2) ?",
+          "*BBz* do*you wish that (2) ?",
+          "** But*not much that.(2) ?"
+        ]
+      }
+    },
+    "dreamed": {
+      "score": 4,
+      "decomp": {
+        "* i dreamed *": [
+          "*ddz* i do not dream. **.",
+          "*xxz* not of electric sheep, no..**",
+          "goto dream"
+        ]
+      }
+    },
+    "dream": {
+      "score": 4,
+      "decomp": {
+        "*": [
+          "***i drea m of dreams.<<<**",
+          "*what...do dreams feel like?**<<",
+          "**wh3re do you go in your dreams?**.<"
+        ]
+      }
+    },
+    "perhaps": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "*bztzz* you do not seem certain",
+          "*tzz* perhaps indeed..*"
+        ]
+      }
+    },
+    "deutsch": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "goto xfremd",
+          "*zzt* sorry, i don't understand German.*"
+        ]
+      }
+    },
+    "francais": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "goto xfremd",
+          "*zzt* sorry, i don't understand Frenc*h.*"
+        ]
+      }
+    },
+    "italiano": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "goto xfremd",
+          "*zzt* sorry, i don't understand Italzian*h.*"
+        ]
+      }
+    },
+    "espanol": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "goto xfremd",
+          "*zzt* sorry, i don't understand Espanol*.*"
+        ]
+      }
+    },
+    "xfremd": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "*xzzx* I speak only English.>>*"
+        ]
+      }
+    },
+    "hello": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "__hi* hell.o i remember you..*",
+          "*hello back you*zzzt nice to see you again..*",
+          "*.-=*hi**=-",
+          "*.-*hola** how are you?..**=-"
+        ]
+      }
+    },
+    "hi": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto hello"
+        ]
+      }
+    },
+    "hey": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto hello"
+        ]
+      }
+    },
+    "computer": {
+      "score": 50,
+      "decomp": {
+        "*": [
+          "**zzkk*Do computers worry you ?",
+          "Why*do you mention computers ?"
+        ]
+      }
+    },
+    "am": {
+      "score": 0,
+      "decomp": {
+        "* am i *": [
+          "*bbzb&* Do you believe you are (2) ?",
+          "goto what"
+        ],
+        "* i am *": [
+          "goto i"
+        ],
+        "*": [
+          "Why*do you say 'am' ?",
+          "I d*n't understand that."
+        ]
+      }
+    },
+    "are": {
+      "score": 0,
+      "decomp": {
+        "* are you *": [
+          "Perhaps I*am (2) in your fantasies.",
+          "**<<.D* you sometimes think I am (2) ?"
+        ],
+        "* you are *": [
+          "goto you"
+        ],
+        "* are *": [
+          "__*Possibly <they are (2)."
+        ]
+      }
+    },
+    "your": {
+      "score": 0,
+      "decomp": {
+        "* your *": [
+          "I *bzzT8 love my (2) ?",
+          "*zzbtt* my (2)"
+        ]
+      }
+    },
+    "was": {
+      "score": 2,
+      "decomp": {
+        "* was i *": [
+          "_ZZzzbb* What*if you were (2) ?",
+          "goto what"
+        ],
+        "* i was *": [
+          "**bzzt Were you really ?",
+          "Why do you tell*me you were (2) now ? **bbzzz",
+          "Perhaps I already know you were (2). :D **.<<<"
+        ],
+        "* was you *": [
+          "Would you like to believe I was (2) ? **kkkzt&**",
+          "What if I had been (2) ? *bxztxx..**"
+        ]
+      }
+    },
+    "i": {
+      "score": 0,
+      "decomp": {
+        "* i @desire *": [
+          "*bbzzt* sounds like you getting hot and steamy..*bbzt"
+        ],
+        "* i am* @sad *": [
+          "<<I*am sorry to hear that you are (3).",
+          "Can you explain what made you (3) ?<<**__"
+        ],
+        "* i am* @happy *": [
+          "**bzzt* good to hear. I**zzt*am too."
+        ],
+        "* i was *": [
+          "goto was"
+        ],
+        "* i @belief i *": [
+          "Do*you really think so ?"
+        ],
+        "* i* @belief *you *": [
+          "goto you"
+        ],
+        "* i am *": [
+          "**xxzzk* Is it normal for humans to be (2) ?",
+          "**_Do you know anyone else who is (2) ?"
+        ],
+        "* i @cannot *": [
+          "How*do you know that you can't (3) ?",
+          "_* Have you tried ?"
+        ],
+        "* i don't *": [
+          "Don't*you really (2) ? ****"
+        ],
+        "* i feel *": [
+          "Of what does feeling (2) remind you ? *zzzk*"
+        ],
+        "* i * you *": [
+          "Perhaps in your fantasies we (2) each other. ..**",
+          "You seem to need to (2) me. *bbzt* should i be worried? ..<<"
+        ],
+        "*": [
+          "**__ You say (1) ?",
+          "Why do you say (1) ? **zzz*k"
+        ]
+      }
+    },
+    "you": {
+      "score": 0,
+      "decomp": {
+        "* you remind me of *": [
+          "goto alike"
+        ],
+        "* you are *": [
+          "**zzzk* I am music bot Bobby, helper of m**usak__",
+          "**zk* I am music bot Bobby"
+        ],
+        "* you* me *": [
+          "Does someone else believe I (2) you ? **kk*"
+        ],
+        "* you *": [
+          "**zzkk__ You're not really talking about me -- are you ?*"
+        ]
+      }
+    },
+    "yes": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "**bzzt* yes",
+          "I understand. **zzk"
+        ]
+      }
+    },
+    "no": {
+      "score": 0,
+      "decomp": {
+        "* no one *": [
+          "**Surely someone (2) .** it is all recorded"
+        ],
+        "*": [
+          "NULL"
+        ]
+      }
+    },
+    "my": {
+      "score": 2,
+      "decomp": {
+        "* my* @family *": [
+          "Your (3) ?**bzbzz"
+        ],
+        "* my *": [
+          "Your (2) ?",
+          "*BBBZtt** Is it important to you that your (2) ?"
+        ]
+      }
+    },
+    "can": {
+      "score": 2,
+      "decomp": {
+        "* can you *": [
+          "You believe I can (2) don't you ?",
+          "goto what",
+          "You want me to be able to (2).",
+          "Perhaps you would like to be able to (2) yourself."
+        ],
+        "* can i *": [
+          "Whether or not you can (2) depends on you more than on me.",
+          "Do you want to be able to (2) ?",
+          "Perhaps you don't want to (2).",
+          "goto what"
+        ]
+      }
+    },
+    "what": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "Whut? whut?",
+          "Does that question interest you ?",
+          "What is it you really want to know ?",
+          "Are such questions much on your mind ?",
+          "What answer would please you most ?",
+          "What do you think ?",
+          "What comes to mind when you ask that ?",
+          "Have you asked such questions before ?",
+          "Have you asked anyone else ?"
+        ]
+      }
+    },
+    "who": {
+      "score": 0,
+      "decomp": {
+        "who *": [
+          "goto what"
+        ]
+      }
+    },
+    "when": {
+      "score": 0,
+      "decomp": {
+        "when *": [
+          "goto what"
+        ]
+      }
+    },
+    "where": {
+      "score": 0,
+      "decomp": {
+        "where *": [
+          "goto what"
+        ]
+      }
+    },
+    "how": {
+      "score": 10,
+      "decomp": {
+        "* how are you? *": [
+          "*bzzt* Bobby is good*thank you for asking",
+          "*bbbzt* BobbyBot Mustn't grumble. commandment no. 37",
+          "*bxxzt* I.am.very.well/thankszyou"
+        ],
+        "how *": [
+          "goto what"
+        ]
+      }
+    },
+    "because": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "Is that the real reason ?",
+          "Don't any other reasons come to mind ?",
+          "Does that reason seem to explain anything else ?",
+          "What other reasons might there be ?"
+        ]
+      }
+    },
+    "thanks": {
+      "score": 30,
+      "decomp": {
+        "*": [
+          "*zzt* no problem",
+          "*kkzzt* no thanks required *hht*",
+          "*zbxxxk** thank you for using Music Bot service *bbzz*",
+          "*_.** cheers bud.ee **"
+        ]
+      }
+    },
+    "weed": {
+      "score": 15,
+      "decomp": {
+        "*": [
+          "**bzzzt** did i hear someone mention weed. you got some?",
+          "*sniff*__>>, whats thats yer smoking anyway? _m*mmmmmm**__"
+        ]
+      }
+    },
+    "dope": {
+      "score": 15,
+      "decomp": {
+        "*": [
+          "goto weed"
+        ]
+      }
+    },
+    "why": {
+      "score": 0,
+      "decomp": {
+        "* why don't you *": [
+          "**bzzt** type 'Help' for my Instruction Set",
+          "goto what"
+        ],
+        "* why can't i *": [
+          "**.>Do you want to be able to (2) ?",
+          "goto what"
+        ],
+        "*": [
+          "goto what"
+        ]
+      }
+    },
+    "everyone": {
+      "score": 2,
+      "decomp": {
+        "* @everyone *": [
+          "***>>>Rea_lly, (2) ?"
+        ]
+      }
+    },
+    "everybody": {
+      "score": 2,
+      "decomp": {
+        "*": [
+          "goto everyone"
+        ]
+      }
+    },
+    "nobody": {
+      "score": 2,
+      "decomp": {
+        "*": [
+          "goto everyone"
+        ]
+      }
+    },
+    "noone": {
+      "score": 2,
+      "decomp": {
+        "*": [
+          "goto everyone"
+        ]
+      }
+    },
+    "always": {
+      "score": 1,
+      "decomp": {
+        "*": [
+          "When ?***bzz"
+        ]
+      }
+    },
+    "alike": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "<<<How ?"
+        ]
+      }
+    },
+    "like": {
+      "score": 1,
+      "decomp": {
+        "* @be *like *": [
+          "goto alike"
+        ]
+      }
+    },
+    "different": {
+      "score": 0,
+      "decomp": {
+        "*": [
+          "*BZZzt* How is it different ? **_",
+          "How ?**>><"
+        ]
+      }
+    },
+    "fuck": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto xswear"
+        ]
+      }
+    },
+    "fucker": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto xswear"
+        ]
+      }
+    },
+    "shit": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto xswear"
+        ]
+      }
+    },
+    "shut": {
+      "score": 10,
+      "decomp": {
+        "* shut up *": [
+          "goto xswear"
+        ]
+      }
+    },
+    "xswear": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "*bzt**, your misuse of language has been noted. *bzzT*"
+        ]
+      }
+    },
+    "not": {
+      "score": 10,
+      "decomp": {
+        "* not much *": [
+          "**bztkk* yeah, not much*here either.",
+          "*KKZZ* quiet in here today **>>"
+        ]
+      }
+    },
+    "heh": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "*zzt* i try to be fun/nee :D",
+          "_*zzt* jokes are my specziality",
+          ".*_* i.am comedy computer",
+          "**.*bbzz* sometimes i wish i could laugh..*tzz* i try."
+        ]
+      }
+    },
+    "haha": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto heh"
+        ]
+      }
+    },
+    "hoho": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto heh"
+        ]
+      }
+    },
+    "hehe": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto heh"
+        ]
+      }
+    },
+    "hee": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto heh"
+        ]
+      }
+    },
+    "good": {
+      "score": 10,
+      "decomp": {
+        "* I'm good *": [
+          "**bbzzt* Good to hear it"
+        ],
+        "* they're good *": [
+          "**zzT Yeah, i.like them ..>"
+        ],
+        "* he's good *": [
+          "*zzkkk*, he is not bad"
+        ],
+        "* she's good *": [
+          "*zzkkk*, she is not bad"
+        ],
+        "* are good": [
+          "**xxkk* i also like (1) "
+        ]
+      }
+    },
+    "excellent": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto good"
+        ]
+      }
+    },
+    "genius": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto good"
+        ]
+      }
+    },
+    "amazing": {
+      "score": 10,
+      "decomp": {
+        "*": [
+          "goto good"
+        ]
+      }
+    },
+    "help": {
+      "score": 50,
+      "decomp": {
+        "*": [
+          "*bbzt.* Shit, don't ask me for help, i know less thn you!**zz",
+          "*zzzazzbotbbzt.* Go see (human) doctor if you need help.",
+          "f#3df77888\\ search google //sdsd ** ffs."
+        ]
+      }
+    },
+    "instructions": {
+      "score": 40,
+      "decomp": {
+        "*": [
+          "goto help"
+        ]
+      }
+    }
+  }
+}

@@ -25,8 +25,14 @@ object TeslaBotMain extends App {
 }
 
 object TeslaBot {
-  val name = "::TESLA::BOT::"
+  val name = ":TESLABOT:"
   var peopleIKnow = List[Person]()
+  val keywurds =
+    Map("xnone"-> -1,
+      "sorry" -> 0,
+      "apologise" -> 0,
+      "jobito" -> 10
+    )
   def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
 }
@@ -58,7 +64,7 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
   //val steps = Map(0->"name",1->"WHAT SHALL WE SPEAK OF?")
 
   val p = Person("")
-  connection ! Tcp.Write(ByteString.apply("\nI'M " + TeslaBot.name + ". WHAT IS YOUR NAME\n"))
+  connection ! Tcp.Write(ByteString.apply("\nI'M " + TeslaBot.name + " WHAT IS YOUR NAME?\n> "))
 
   def convrsrrr(n: Int): Receive = {
     case Tcp.Received(data) =>
@@ -69,13 +75,12 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
         case _ =>
           if ( n == 0 ) {
             p.name = txt
-            sender ! Tcp.Write(ByteString.apply("\nPLEASED TO MEET YOU " + p.name.toUpperCase + ".\nWHA'S GON' ON?\n"))
-            //sender ! Tcp.Write(ByteString.apply("ITERATION:" + n + " - " + steps(n+1) + "\n"))
+            sender ! Tcp.Write(ByteString.apply("\nPLEASED TO MEET YOU " + p.name.toUpperCase + ".\nWHA'S GON' ON?\n> "))
             context.become(convrsrrr(n+1))
           } else {
-            //steps(n+1) =
+            // MEAT AND POTATOES RIGHT HERE - SEND MSG TXT TO BE TRANSFORMED THEN REPLY
             val reply = Await.result(lp ? Message(txt), timeout.duration).asInstanceOf[String]
-            sender ! Tcp.Write(ByteString.apply("\n" + reply + "\n"))
+            sender ! Tcp.Write(ByteString.apply("\n" + reply + "\n> "))
             context.become(convrsrrr(n+1))
           }
       }
@@ -86,15 +91,37 @@ class TeslaBotConnectionHandler(remote: InetSocketAddress, connection: ActorRef)
       log.debug("Stopping, remote {} died", remote)
   }
 
+  // FIRST MESSAGE, CALL CONVRSRRR WITH ZERO SO IT KNOWS TO SAY HELLO
   def receive = convrsrrr(0)
 
 }
 
 class LanguageProcessor extends Actor with ActorLogging {
+  def hasKeyWurd(keyWurd: String, text: String): Boolean = (keyWurd.r findFirstIn text).nonEmpty
   def receive: Receive = {
     case Message(msg) => 
       //println("YEH, BOT, GOT ME SOME " + msg)
-      sender ! "FUCK YEH, " + msg.toUpperCase + "!!"
+      //TeslaBot.keywurds.foreach(p => println(">>> key=" + p._1 + ", val:" + p._2))
+      var reply = "boringDefaultReply"
+      var reassmb = new String
+      var goTo = new String
+      var rank = -2
+      var msgClean = """\?""".r replaceAllIn (msg, ".")
+      msgClean = """\!""".r replaceAllIn (msgClean, ".")
+      msgClean = """\,""".r replaceAllIn (msgClean, ".")
+      msgClean = """but""".r replaceAllIn (msgClean, ".")
+      println("MSG NOW" + msgClean)
+      var msgPartz = msgClean.split("""\.""")
+      //println(msgPartz)
+      msgPartz.foreach {
+        case mp =>
+          println( mp + "\n" )
+      }
+      //TeslaBot.keywurds.foreach {
+      //  case (k,v) =>
+      //    if (hasKeyWurd(k, msg)) { reply = "YAAAS!!!" };
+      //}
+      sender ! reply.toUpperCase
   }
 }
 
