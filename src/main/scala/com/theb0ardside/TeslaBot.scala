@@ -6,6 +6,7 @@ import akka.util.{ByteString, Timeout}
 import akka.pattern.ask
 import java.net.InetSocketAddress
 import java.util.concurrent.TimeUnit
+import scala.util.Random
 import scala.io.StdIn
 import scala.collection.immutable.StringOps
 import scala.collection.mutable.Map
@@ -28,10 +29,10 @@ object TeslaBot {
   val name = ":TESLABOT:"
   var peopleIKnow = List[Person]()
   val keywurds =
-    Map("xnone"-> -1,
-      "sorry" -> 0,
-      "apologise" -> 0,
-      "jobito" -> 10
+    Map("xnone"-> (-1, List("joby bum","yamma")),
+      "sorry" -> (0, List("sozz", "sozzze")),
+      "apologize" -> (0, List("apsozz", "paapsozzze")),
+      "jobito" -> (10, List("shitey bum", "wazzle"))
     )
   def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
@@ -122,10 +123,11 @@ class LanguageProcessor extends Actor with ActorLogging {
           println( mp + "\n" )
             TeslaBot.keywurds.foreach {
               case (k,v) =>
-                if (hasKeyWurd(k, mp) && v > rank) {
+                if (hasKeyWurd(k, mp) && v._1 > rank) {
                   println("FOUND!: ", k, " IN ", mp) 
                   println("BLSH - RANK:", v)
-                  rank = v
+                  reply = Random.shuffle(v._2.toList).head
+                  rank = v._1
                 };
             }
       }
