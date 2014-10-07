@@ -29,10 +29,9 @@ object TeslaBot {
   val name = ":TESLABOT:"
   var peopleIKnow = List[Person]()
   val keywurds =
-    Map("xnone"-> (-1, List("joby bum","yamma")),
-      "sorry" -> (0, List("sozz", "sozzze")),
-      "apologize" -> (0, List("apsozz", "paapsozzze")),
-      "jobito" -> (10, List("shitey bum", "wazzle"))
+    Map("xnone"-> (-1, List(Map("jobbone" -> List("innerjoabie", "innerjoabie2")), Map("jobbtwp" -> List("inn2job", "iun2j")))),
+      "sorry"-> (0, List(Map("sozz" -> List("innersozzee", "innerssssie2")), Map("sobbtwp" -> List("ssinn2job", "sziun2j")))),
+"jobito"-> (10, List(Map("JIAIAIA" -> List("zzz", "dfdfdf")), Map("jozz" -> List("JOBB", "JOJJJJinnerssssie2")), Map("jRRRRwp" -> List("JJJJJJjob", "JJJJn2j"))))
     )
   def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
@@ -124,9 +123,13 @@ class LanguageProcessor extends Actor with ActorLogging {
             TeslaBot.keywurds.foreach {
               case (k,v) =>
                 if (hasKeyWurd(k, mp) && v._1 > rank) {
+                  val rng = 0 to (v._2.size - 1)
                   println("FOUND!: ", k, " IN ", mp) 
-                  println("BLSH - RANK:", v)
-                  reply = Random.shuffle(v._2.toList).head
+                  println("BLSH - RANK:", v._2.slice(1,2), rng) //, Random.Shuffle(v._2).head)
+                  println("RANDY :", rng(Random.nextInt(rng length)))
+                  //reply = Random.shuffle(v._2.toList).head
+                  //reply = Random.shuffle(v._2).head
+                  //reply = v._2
                   rank = v._1
                 };
             }
