@@ -106,6 +106,10 @@ class LanguageProcessor extends Actor with ActorLogging {
       var reassmb = new String
       var goTo = new String
       var rank = -2
+      // this next bit is all copied from perl's Chatbot::Eliza ->
+      // convert punctuation to periods, then separate into sentences
+      // to look for keywurds. Compare score of keyword with any previous, 
+      // if this is higher, set 
       var msgClean = """\?""".r replaceAllIn (msg, ".")
       msgClean = """\!""".r replaceAllIn (msgClean, ".")
       msgClean = """\,""".r replaceAllIn (msgClean, ".")
@@ -116,11 +120,16 @@ class LanguageProcessor extends Actor with ActorLogging {
       msgPartz.foreach {
         case mp =>
           println( mp + "\n" )
+            TeslaBot.keywurds.foreach {
+              case (k,v) =>
+                if (hasKeyWurd(k, mp) && v > rank) {
+                  println("FOUND!: ", k, " IN ", mp) 
+                  println("BLSH - RANK:", v)
+                  rank = v
+                };
+            }
       }
-      //TeslaBot.keywurds.foreach {
-      //  case (k,v) =>
-      //    if (hasKeyWurd(k, msg)) { reply = "YAAAS!!!" };
-      //}
+      println("RANK IS:", rank)
       sender ! reply.toUpperCase
   }
 }
