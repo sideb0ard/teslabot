@@ -1,6 +1,6 @@
 {
-  "keywords": {
-    "xnone": {
+  "keywurdz": [
+    { "keywurd": "xnone",
       "score": -1,
       "decomp": {
         "*": [
@@ -13,7 +13,7 @@
           ]
       }
     },
-    "sorry": {
+    { "keywurd": "sorry",
       "score": 0,
       "decomp": {
         "*": [
@@ -25,7 +25,7 @@
         ]
       }
     },
-    "apologise": {
+    { "keywurd": "apologise",
       "score": 0,
       "decomp": {
         "*": [
@@ -33,7 +33,7 @@
         ]
       }
     },
-    "remember": {
+    { "keywurd": "remember",
       "score": 5,
       "decomp": {
         "* i remember *": [
@@ -52,7 +52,7 @@
         ]
       }
     },
-    "forget": {
+    { "keywurd": "forget",
       "score": 5,
       "decomp": {
         "* i forget *": [
@@ -65,7 +65,7 @@
         ]
       }
     },
-    "if": {
+    { "keywurd": "if",
       "score": 5,
       "decomp": {
         "* if *": [
@@ -75,7 +75,7 @@
         ]
       }
     },
-    "dreamed": {
+    { "keywurd": "dreamed",
       "score": 4,
       "decomp": {
         "* i dreamed *": [
@@ -85,7 +85,7 @@
         ]
       }
     },
-    "dream": {
+    { "keywurd": "dream",
       "score": 4,
       "decomp": {
         "*": [
@@ -95,7 +95,7 @@
         ]
       }
     },
-    "perhaps": {
+    { "keywurd": "perhaps",
       "score": 0,
       "decomp": {
         "*": [
@@ -104,7 +104,7 @@
         ]
       }
     },
-    "deutsch": {
+    { "keywurd": "deutsch",
       "score": 0,
       "decomp": {
         "*": [
@@ -113,7 +113,7 @@
         ]
       }
     },
-    "francais": {
+    { "keywurd": "francais",
       "score": 0,
       "decomp": {
         "*": [
@@ -122,7 +122,7 @@
         ]
       }
     },
-    "italiano": {
+    { "keywurd": "italiano",
       "score": 0,
       "decomp": {
         "*": [
@@ -131,7 +131,7 @@
         ]
       }
     },
-    "espanol": {
+    { "keywurd": "espanol",
       "score": 0,
       "decomp": {
         "*": [
@@ -140,7 +140,7 @@
         ]
       }
     },
-    "xfremd": {
+    { "keywurd": "xfremd",
       "score": 0,
       "decomp": {
         "*": [
@@ -148,7 +148,7 @@
         ]
       }
     },
-    "hello": {
+    { "keywurd": "hello",
       "score": 0,
       "decomp": {
         "*": [
@@ -159,7 +159,7 @@
         ]
       }
     },
-    "hi": {
+    { "keywurd": "hi",
       "score": 10,
       "decomp": {
         "*": [
@@ -167,7 +167,7 @@
         ]
       }
     },
-    "hey": {
+    { "keywurd": "hey",
       "score": 10,
       "decomp": {
         "*": [
@@ -175,7 +175,7 @@
         ]
       }
     },
-    "computer": {
+    { "keywurd": "computer",
       "score": 50,
       "decomp": {
         "*": [
@@ -184,7 +184,7 @@
         ]
       }
     },
-    "am": {
+    { "keywurd": "am",
       "score": 0,
       "decomp": {
         "* am i *": [
@@ -200,7 +200,7 @@
         ]
       }
     },
-    "are": {
+    { "keywurd": "are",
       "score": 0,
       "decomp": {
         "* are you *": [
@@ -215,7 +215,7 @@
         ]
       }
     },
-    "your": {
+    { "keywurd": "your",
       "score": 0,
       "decomp": {
         "* your *": [
@@ -224,7 +224,7 @@
         ]
       }
     },
-    "was": {
+    { "keywurd": "was",
       "score": 2,
       "decomp": {
         "* was i *": [
@@ -242,7 +242,7 @@
         ]
       }
     },
-    "i": {
+    { "keywurd": "i",
       "score": 0,
       "decomp": {
         "* i @desire *": [
@@ -288,7 +288,7 @@
         ]
       }
     },
-    "you": {
+    { "keywurd": "you",
       "score": 0,
       "decomp": {
         "* you remind me of *": [
@@ -306,7 +306,7 @@
         ]
       }
     },
-    "yes": {
+    { "keywurd": "yes",
       "score": 0,
       "decomp": {
         "*": [
@@ -315,7 +315,7 @@
         ]
       }
     },
-    "no": {
+    { "keywurd": "no",
       "score": 0,
       "decomp": {
         "* no one *": [
@@ -326,7 +326,7 @@
         ]
       }
     },
-    "my": {
+    { "keywurd": "my",
       "score": 2,
       "decomp": {
         "* my* @family *": [
@@ -338,7 +338,7 @@
         ]
       }
     },
-    "can": {
+    { "keywurd": "can",
       "score": 2,
       "decomp": {
         "* can you *": [
@@ -355,7 +355,7 @@
         ]
       }
     },
-    "what": {
+    { "keywurd": "what",
       "score": 0,
       "decomp": {
         "*": [
@@ -371,7 +371,7 @@
         ]
       }
     },
-    "who": {
+    { "keywurd": "who",
       "score": 0,
       "decomp": {
         "who *": [
@@ -379,7 +379,7 @@
         ]
       }
     },
-    "when": {
+    { "keywurd": "when",
       "score": 0,
       "decomp": {
         "when *": [
@@ -387,7 +387,7 @@
         ]
       }
     },
-    "where": {
+    { "keywurd": "where",
       "score": 0,
       "decomp": {
         "where *": [
@@ -395,7 +395,7 @@
         ]
       }
     },
-    "how": {
+    { "keywurd": "how",
       "score": 10,
       "decomp": {
         "* how are you? *": [
@@ -408,7 +408,7 @@
         ]
       }
     },
-    "because": {
+    { "keywurd": "because",
       "score": 0,
       "decomp": {
         "*": [
@@ -419,7 +419,7 @@
         ]
       }
     },
-    "thanks": {
+    { "keywurd": "thanks",
       "score": 30,
       "decomp": {
         "*": [
@@ -430,7 +430,7 @@
         ]
       }
     },
-    "weed": {
+    { "keywurd": "weed",
       "score": 15,
       "decomp": {
         "*": [
@@ -439,7 +439,7 @@
         ]
       }
     },
-    "dope": {
+    { "keywurd": "dope",
       "score": 15,
       "decomp": {
         "*": [
@@ -447,7 +447,7 @@
         ]
       }
     },
-    "why": {
+    { "keywurd": "why",
       "score": 0,
       "decomp": {
         "* why don't you *": [
@@ -463,7 +463,7 @@
         ]
       }
     },
-    "everyone": {
+    { "keywurd": "everyone",
       "score": 2,
       "decomp": {
         "* @everyone *": [
@@ -471,7 +471,7 @@
         ]
       }
     },
-    "everybody": {
+    { "keywurd": "everybody",
       "score": 2,
       "decomp": {
         "*": [
@@ -479,7 +479,7 @@
         ]
       }
     },
-    "nobody": {
+    { "keywurd": "nobody",
       "score": 2,
       "decomp": {
         "*": [
@@ -487,7 +487,7 @@
         ]
       }
     },
-    "noone": {
+    { "keywurd": "noone",
       "score": 2,
       "decomp": {
         "*": [
@@ -495,7 +495,7 @@
         ]
       }
     },
-    "always": {
+    { "keywurd": "always",
       "score": 1,
       "decomp": {
         "*": [
@@ -503,7 +503,7 @@
         ]
       }
     },
-    "alike": {
+    { "keywurd": "alike",
       "score": 10,
       "decomp": {
         "*": [
@@ -511,7 +511,7 @@
         ]
       }
     },
-    "like": {
+    { "keywurd": "like",
       "score": 1,
       "decomp": {
         "* @be *like *": [
@@ -519,7 +519,7 @@
         ]
       }
     },
-    "different": {
+    { "keywurd": "different",
       "score": 0,
       "decomp": {
         "*": [
@@ -528,7 +528,7 @@
         ]
       }
     },
-    "fuck": {
+    { "keywurd": "fuck",
       "score": 10,
       "decomp": {
         "*": [
@@ -536,7 +536,7 @@
         ]
       }
     },
-    "fucker": {
+    { "keywurd": "fucker",
       "score": 10,
       "decomp": {
         "*": [
@@ -544,7 +544,7 @@
         ]
       }
     },
-    "shit": {
+    { "keywurd": "shit",
       "score": 10,
       "decomp": {
         "*": [
@@ -552,7 +552,7 @@
         ]
       }
     },
-    "shut": {
+    { "keywurd": "shut",
       "score": 10,
       "decomp": {
         "* shut up *": [
@@ -560,7 +560,7 @@
         ]
       }
     },
-    "xswear": {
+    { "keywurd": "xswear",
       "score": 10,
       "decomp": {
         "*": [
@@ -568,7 +568,7 @@
         ]
       }
     },
-    "not": {
+    { "keywurd": "not",
       "score": 10,
       "decomp": {
         "* not much *": [
@@ -577,7 +577,7 @@
         ]
       }
     },
-    "heh": {
+    { "keywurd": "heh",
       "score": 10,
       "decomp": {
         "*": [
@@ -588,7 +588,7 @@
         ]
       }
     },
-    "haha": {
+    { "keywurd": "haha",
       "score": 10,
       "decomp": {
         "*": [
@@ -596,7 +596,7 @@
         ]
       }
     },
-    "hoho": {
+    { "keywurd": "hoho",
       "score": 10,
       "decomp": {
         "*": [
@@ -604,7 +604,7 @@
         ]
       }
     },
-    "hehe": {
+    { "keywurd": "hehe",
       "score": 10,
       "decomp": {
         "*": [
@@ -612,7 +612,7 @@
         ]
       }
     },
-    "hee": {
+    { "keywurd": "hee",
       "score": 10,
       "decomp": {
         "*": [
@@ -620,7 +620,7 @@
         ]
       }
     },
-    "good": {
+    { "keywurd": "good",
       "score": 10,
       "decomp": {
         "* I'm good *": [
@@ -640,7 +640,7 @@
         ]
       }
     },
-    "excellent": {
+    { "keywurd": "excellent",
       "score": 10,
       "decomp": {
         "*": [
@@ -648,7 +648,7 @@
         ]
       }
     },
-    "genius": {
+    { "keywurd": "genius",
       "score": 10,
       "decomp": {
         "*": [
@@ -656,7 +656,7 @@
         ]
       }
     },
-    "amazing": {
+    { "keywurd": "amazing",
       "score": 10,
       "decomp": {
         "*": [
@@ -664,7 +664,7 @@
         ]
       }
     },
-    "help": {
+    { "keywurd": "help",
       "score": 50,
       "decomp": {
         "*": [
@@ -674,7 +674,7 @@
         ]
       }
     },
-    "instructions": {
+    { "keywurd": "instructions",
       "score": 40,
       "decomp": {
         "*": [
@@ -682,5 +682,5 @@
         ]
       }
     }
-  }
+  ]
 }

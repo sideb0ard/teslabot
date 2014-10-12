@@ -14,6 +14,9 @@ import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.language.postfixOps
 
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
+
 case class Message(msg: String)
 case class Person(var name: String)
 
@@ -29,10 +32,14 @@ object TeslaBot {
   val name = ":TESLABOT:"
   var peopleIKnow = List[Person]()
   val keywurds =
-    Map("xnone"-> (-1, List(Map("jobbone" -> List("innerjoabie", "innerjoabie2")), Map("jobbtwp" -> List("inn2job", "iun2j")))),
-      "sorry"-> (0, List(Map("sozz" -> List("innersozzee", "innerssssie2")), Map("sobbtwp" -> List("ssinn2job", "sziun2j")))),
-"jobito"-> (10, List(Map("JIAIAIA" -> List("zzz", "dfdfdf")), Map("jozz" -> List("JOBB", "JOJJJJinnerssssie2")), Map("jRRRRwp" -> List("JJJJJJjob", "JJJJn2j"))))
+    Map("xnone"-> (-1, Map("jobbone" -> List("innerjoabie", "innerjoabie2"), "jobbtwp" -> List("inn2job", "iun2j"))),
+      "sorry"  -> ( 0, Map("sozz" -> List("innersozzee", "innerssssie2"), "sobbtwp" -> List("ssinn2job", "sziun2j"))),
+      "jobito" -> (10, Map("JIAIAIA" -> List("zzz", "dfdfdf"), "jozz" -> List("JOBB", "JOJJJJinnerssssie2"), "jRRRRwp" -> List("JJJJJJjob", "JJJJn2j")))
     )
+
+  val lnz = scala.io.Source.fromFile("src/main/resources/language.json").mkString
+  val keywurdz_json = parse(lnz)
+
   def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
 }
@@ -120,21 +127,46 @@ class LanguageProcessor extends Actor with ActorLogging {
       msgPartz.foreach {
         case mp =>
           println( mp + "\n" )
-            TeslaBot.keywurds.foreach {
-              case (k,v) =>
-                if (hasKeyWurd(k, mp) && v._1 > rank) {
-                  val rng = 0 to (v._2.size - 1)
-                  println("FOUND!: ", k, " IN ", mp) 
-                  println("BLSH - RANK:", v._2.slice(1,2), rng) //, Random.Shuffle(v._2).head)
-                  println("RANDY :", rng(Random.nextInt(rng length)))
-                  //reply = Random.shuffle(v._2.toList).head
-                  //reply = Random.shuffle(v._2).head
-                  //reply = v._2
-                  rank = v._1
-                };
-            }
+
+          val repliz = for {
+            //JString(keywurd) <- TeslaBot.keywurdz_json \\ "keywurd"
+            JObject(k) <- TeslaBot.keywurdz_json
+            JField("keywurd", JString(keywurd)) <- k
+            //if keywurd contains JString("not")
+            //JField("decomp", JArray(decomp)) <- k
+          //} yield decomp
+          } yield keywurd
+
+          repliz.foreach {
+            case k =>
+              if (hasKeyWurd(k, mp)) {
+                println("K:" + k)
+              }
+          }
+          //println( kwz + "\n" )
+            //TeslaBot.kwz.foreach {
+            //  case (k) =>
+            //    if (hasKeyWurd(k, mp)) { 
+            //      println("OHYA: ", k ) 
+            //    }
+            //}
+            //TeslaBot.keywurds.foreach {
+            //  case (k,v) =>
+            //    if (hasKeyWurd(k, mp) && v._1 > rank) {
+            //      val rng = 0 to (v._2.size - 1)
+            //      println("FOUND!: ", k, " IN ", mp, "\n\n")
+            //      //println("ONE SLICE -:", v)
+            //      println("TWO SLICE -:", v._2.keys)
+            //      // TRY TO MATCH A DECOMPOSITION RULE HERE
+            //      rank = v._1
+            //    };
+            //}
+
+            // POSSIBILITIES
+
+            //println("POSS: ", newReply_poss)
       }
-      println("RANK IS:", rank)
+      //println("RANK IS:", rank)
       sender ! reply.toUpperCase
   }
 }

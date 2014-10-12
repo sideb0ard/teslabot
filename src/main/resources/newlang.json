@@ -1,0 +1,16 @@
+{ "keywurdz": [
+  {
+    "keywurd": "sorry",
+    "score": 7,
+    "decomp_rules": [
+      {"are you sorry?": [
+        "blah de sorry 1",
+        "blah de sorry 2"
+      ]},
+      {"were they sorry?": [
+        "were blah de sorry 1",
+        "were blah de sorry 2"
+      ]}
+    ]
+  }
+]}

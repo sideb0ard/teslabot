@@ -1,0 +1,29 @@
+{ "keywurds": [
+  { 
+    "keywurd": "xnone",
+    "score": -1,
+    "decomp": {
+      "*": [
+        "_bzzzt** Plz type 'help' **",
+        "**bzzt* i may be bot, i think you smoking the wacky*backy. Type 'help'",
+        "*!*!*! plz type 'help'",
+        "*zzt*. Type 'help' for my instruction set",
+        "_bzzzt** I am lozt. Please type 'help' for my instruction set.",
+        "*_beeop** hello. you are stoner. please type 'help' for my instruction set."
+        ]
+    }
+  },
+  { 
+    "keywurd": "sorry",
+    "score": 0,
+    "decomp": {
+      "*": [
+        "*zzt* don't worry, it's fine..",
+        "*'s aii*ight, i don't mind**zzt",
+        "*xxzt* thats fine. bzzt<*cough*dick>.",
+        "**zzzt**no worries",
+        "c**lio*iglesiasz"
+      ]
+    }
+  }
+]}
