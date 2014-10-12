@@ -129,48 +129,12 @@ class LanguageProcessor extends Actor with ActorLogging {
         case mp =>
           println( mp + "\n" )
 
-          for (k <- TeslaBot.kwz)
-            println(k.keywurd) 
-            //println((hasKeyWurd(k.keywurd, mp)))
-            //  println("JOBBITESSS!")
-            //}
-          //val repliz = for {
-          //  //JString(keywurd) <- TeslaBot.keywurdz_json \\ "keywurd"
-          //  JObject(k) <- TeslaBot.keywurdz_json
-          //  JField("keywurd", JString(keywurd)) <- k
-          //  //if keywurd contains JString("not")
-          //  //JField("decomp", JArray(decomp)) <- k
-          ////} yield decomp
-          //} yield keywurd
-
-          //repliz.foreach {
-          //  case k =>
-          //    if (hasKeyWurd(k, mp)) {
-          //      println("K:" + k)
-          //    }
-          //}
-          //println( kwz + "\n" )
-            //TeslaBot.kwz.foreach {
-            //  case (k) =>
-            //    if (hasKeyWurd(k, mp)) { 
-            //      println("OHYA: ", k ) 
-            //    }
-            //}
-            //TeslaBot.keywurds.foreach {
-            //  case (k,v) =>
-            //    if (hasKeyWurd(k, mp) && v._1 > rank) {
-            //      val rng = 0 to (v._2.size - 1)
-            //      println("FOUND!: ", k, " IN ", mp, "\n\n")
-            //      //println("ONE SLICE -:", v)
-            //      println("TWO SLICE -:", v._2.keys)
-            //      // TRY TO MATCH A DECOMPOSITION RULE HERE
-            //      rank = v._1
-            //    };
-            //}
-
-            // POSSIBILITIES
-
-            //println("POSS: ", newReply_poss)
+          for (k <- TeslaBot.kwz) {
+            //println(k.keywurd) 
+            if (hasKeyWurd(k.keywurd, mp)) {
+              println("JOBBITESSS!")
+            }
+          }
       }
       //println("RANK IS:", rank)
       sender ! reply.toUpperCase
