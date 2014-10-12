@@ -12,5 +12,19 @@
         "were blah de sorry 2"
       ]}
     ]
+  },
+  {
+    "keywurd": "jobito",
+    "score": 7,
+    "decomp_rules": [
+      {"did you jobito??": [
+        "blah de jobito 1",
+        "blah de jobito 2"
+      ]},
+      {"were they jobitong??": [
+        "were blah de hojito 1",
+        "were blah de hojito 2"
+      ]}
+    ]
   }
 ]}

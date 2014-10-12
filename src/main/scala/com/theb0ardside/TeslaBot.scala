@@ -17,8 +17,10 @@ import scala.language.postfixOps
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
 
+
 case class Message(msg: String)
 case class Person(var name: String)
+case class Keywurd(keywurd: String, score: Int, decomp_rules: List[Map[String, List[String]]])
 
 object TeslaBotMain extends App {
   val system = ActorSystem("teslabot-system")
@@ -31,14 +33,13 @@ object TeslaBotMain extends App {
 object TeslaBot {
   val name = ":TESLABOT:"
   var peopleIKnow = List[Person]()
-  val keywurds =
-    Map("xnone"-> (-1, Map("jobbone" -> List("innerjoabie", "innerjoabie2"), "jobbtwp" -> List("inn2job", "iun2j"))),
-      "sorry"  -> ( 0, Map("sozz" -> List("innersozzee", "innerssssie2"), "sobbtwp" -> List("ssinn2job", "sziun2j"))),
-      "jobito" -> (10, Map("JIAIAIA" -> List("zzz", "dfdfdf"), "jozz" -> List("JOBB", "JOJJJJinnerssssie2"), "jRRRRwp" -> List("JJJJJJjob", "JJJJn2j")))
-    )
 
-  val lnz = scala.io.Source.fromFile("src/main/resources/language.json").mkString
-  val keywurdz_json = parse(lnz)
+  implicit val formats = DefaultFormats
+
+  val lnz = scala.io.Source.fromFile("src/main/resources/newlang.json").mkString
+  val json = parse(lnz)
+  val list_of_jkwz = (json \ "keywurdz").children
+  val kwz = for (k <- list_of_jkwz) yield k.extract[Keywurd]
 
   def props(endpoint: InetSocketAddress): Props =
     Props(new TeslaBot(endpoint))
@@ -128,21 +129,26 @@ class LanguageProcessor extends Actor with ActorLogging {
         case mp =>
           println( mp + "\n" )
 
-          val repliz = for {
-            //JString(keywurd) <- TeslaBot.keywurdz_json \\ "keywurd"
-            JObject(k) <- TeslaBot.keywurdz_json
-            JField("keywurd", JString(keywurd)) <- k
-            //if keywurd contains JString("not")
-            //JField("decomp", JArray(decomp)) <- k
-          //} yield decomp
-          } yield keywurd
+          for (k <- TeslaBot.kwz)
+            println(k.keywurd) 
+            //println((hasKeyWurd(k.keywurd, mp)))
+            //  println("JOBBITESSS!")
+            //}
+          //val repliz = for {
+          //  //JString(keywurd) <- TeslaBot.keywurdz_json \\ "keywurd"
+          //  JObject(k) <- TeslaBot.keywurdz_json
+          //  JField("keywurd", JString(keywurd)) <- k
+          //  //if keywurd contains JString("not")
+          //  //JField("decomp", JArray(decomp)) <- k
+          ////} yield decomp
+          //} yield keywurd
 
-          repliz.foreach {
-            case k =>
-              if (hasKeyWurd(k, mp)) {
-                println("K:" + k)
-              }
-          }
+          //repliz.foreach {
+          //  case k =>
+          //    if (hasKeyWurd(k, mp)) {
+          //      println("K:" + k)
+          //    }
+          //}
           //println( kwz + "\n" )
             //TeslaBot.kwz.foreach {
             //  case (k) =>
